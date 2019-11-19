@@ -4,11 +4,14 @@ import numpy as np
 from numpy.random import dirichlet
 from numpy.random import multinomial
 
-topic_word_dis = dirichlet([1]*8, 2)
-print (topic_word_dis)
 
-doc_topic_dis = dirichlet([1]*2)
-print (doc_topic_dis)
+K = 2
+V = 8
+# prior
+Phi = dirichlet([1]*V, K)
+Theta = dirichlet([1]*K)
+print (Phi)
+print (Theta)
 
 z =  multinomial(1, doc_topic_dis)
 print (z)
