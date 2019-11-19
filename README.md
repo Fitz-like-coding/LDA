@@ -1,3 +1,6 @@
+# mixture of unigram model
+based on the post https://web.archive.org/web/20160722120155/https://ariddell.org/simple-topic-model.html
+
 # LDA
 Latent Dirichlet Allocation
 
