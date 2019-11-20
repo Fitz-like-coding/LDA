@@ -24,11 +24,13 @@ class MOU(object):
         Phi = dirichlet.rvs([self.Beta]*vobs_number, size=self.K, random_state=self.seed)
         Theta = dirichlet.rvs([self.Alpha]*self.K, random_state=self.seed)
         Z = [[self.Alpha]*self.K] * doc_term.shape[0] * Theta
+        print (Phi)
+        print (Theta)
 
         itr = 0
         while itr <= self.max_iter:
             # update Phi and Beta
-            e = self.Beta + np.multiply(doc_term, Z.T.reshape(self.K, doc_term.shape[0],1)).sum(axis=1) - 1 + 1e-20
+            e = self.Beta + np.multiply(doc_term, Z.T.reshape(self.K, doc_term.shape[0],1)).sum(axis=1) - 1 + 0.1
             for k in range(len(e)):
                 Phi[k] = dirichlet.rvs(e[k], random_state=None)
 
@@ -72,7 +74,7 @@ if __name__ == '__main__':
                         [7,3,6,1,0,11,0,0],
                         [5,9,8,2,0,4,0,0]])
 
-    mou = MOU(n_components=2, max_iter=600, Alpha=1, Beta=1, seed=1)
+    mou = MOU(n_components=4, max_iter=600, Alpha=1, Beta=1, seed=1)
     mou.fit(doc_term)
 
     #topic words distribution
