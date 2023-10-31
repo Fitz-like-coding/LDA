@@ -4,7 +4,7 @@ based on the post https://web.archive.org/web/20160722120155/https://ariddell.or
 # LDA
 Latent Dirichlet Allocation
 
-My own implementation of latent dirichlet allocation [1]
+Gibbs sampling implementation of LDA
 
 Reference
 
